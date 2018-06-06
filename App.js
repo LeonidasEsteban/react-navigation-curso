@@ -6,8 +6,10 @@ import { store, persistor } from './store';
 import Loading from './src/sections/components/loading';
 import AppLayout from './src/app';
 
+import { createStackNavigator } from 'react-navigation';
+
 type Props = {};
-export default class App extends Component<Props> {
+class App extends Component<Props> {
   render() {
     return (
       <Provider
@@ -24,4 +26,10 @@ export default class App extends Component<Props> {
   }
 }
 
+
+export default createStackNavigator({
+  Home: {
+    screen: App
+  }
+})
 

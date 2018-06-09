@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 10,
     flexDirection: 'row',
+    backgroundColor: 'white',
   },
   right: {
     flex: 1,

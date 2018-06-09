@@ -1,24 +1,32 @@
-import { createStore } from 'redux';
+import {
+  createStore,
+  applyMiddleware,
+} from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
-import reducer from './reducers/videos';
-import storage from 'redux-persist/lib/storage';
+import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
 
-// const store = createStore(reducer, {
-//   suggestionList: [],
-//   categoryList: [],
-// })
+import reducer from './reducers/index';
+import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['selectedMovie']
+  blacklist: ['videos', 'navigation']
 }
 
 
 const persistedReducer = persistReducer(persistConfig, reducer)
 
 
-const store = createStore(persistedReducer)
+const middleware = createReactNavigationReduxMiddleware(
+  "root",
+  state => state.nav,
+);
+
+const store = createStore(
+  persistedReducer,
+  applyMiddleware(middleware)
+)
 const persistor = persistStore(store)
 
 export { store, persistor };

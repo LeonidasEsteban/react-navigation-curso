@@ -39,11 +39,6 @@ class Movie extends Component {
         }}
       >
         <MovieLayout>
-          <Header>
-            <Close
-              onPress={this.closeVideo}
-            />
-          </Header>
           <Player />
           <Details {...this.props.movie}/>
         </MovieLayout>
@@ -52,9 +47,25 @@ class Movie extends Component {
   }
 }
 
+Movie.navigationOptions = ({ navigation }) => {
+  return {
+    header: (
+      <Header>
+        <Close
+          onPress={()=> { navigation.goBack() }}
+        />
+      </Header>
+    ),
+    headerStyle: {
+      backgroundColor: '#1A2F3B',
+    }
+  }
+};
+
+
 function mapStateToProps(state) {
   return {
-    movie: state.selectedMovie
+    movie: state.videos.selectedMovie
   }
 }
 

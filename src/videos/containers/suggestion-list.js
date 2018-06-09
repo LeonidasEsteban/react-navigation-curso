@@ -8,10 +8,12 @@ import Empty from '../components/empty';
 import Separator from '../components/vertical-separator';
 import Suggestion from '../components/suggestion';
 import { connect } from 'react-redux';
+import navigator from '../../app-navigator';
+import { NavigationActions } from 'react-navigation';
 
 function mapStateToProps(state) {
   return {
-    list: state.suggestionList
+    list: state.videos.suggestionList
   }
 }
 
@@ -20,12 +22,18 @@ class SuggestionList extends Component {
   renderEmtpy = () => <Empty text="No hay sugerencias :(" />
   itemSeparator = () => <Separator />
   viewMovie = (item) => {
+    const n = navigator;
     this.props.dispatch({
       type: 'SET_SELECTED_MOVIE',
       payload: {
         movie: item,
       }
     })
+    this.props.dispatch(
+      NavigationActions.navigate({
+        routeName: 'Movie',
+      })
+    )
   }
   renderItem = ({item}) => {
     return (

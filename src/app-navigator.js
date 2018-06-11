@@ -16,7 +16,7 @@ const routes = {
 
 const AppNavigator = createStackNavigator(routes, {
   initialRouteName: 'Home',
-  headerMode: 'screen',
+  headerMode: 'float',
   mode: 'card',
   headerTransitionPreset: 'fade-in-place'
 })

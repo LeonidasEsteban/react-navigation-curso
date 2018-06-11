@@ -43,9 +43,9 @@ class Home extends Component {
 Home.navigationOptions = ({ navigation }) => {
   return {
     header: <Header />,
-    headerStyle: {
-      backgroundColor: '#1A2F3B',
-    }
+    // headerStyle: {
+    //   backgroundColor: '#1A2F3B',
+    // }
   }
 };
 

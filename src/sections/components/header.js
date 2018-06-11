@@ -9,23 +9,24 @@ import {
 
 function Header(props) {
   return (
-    <View>
-      <SafeAreaView>
-        <View style={styles.container}>
-          <Image
-            source={require('../../../assets/logo.png')}
-            style={styles.logo}
-          />
-          <View style={styles.right}>
-            {props.children}
-          </View>
+    <SafeAreaView style={styles.statusBar}>
+      <View style={styles.container}>
+        <Image
+          source={require('../../../assets/logo.png')}
+          style={styles.logo}
+        />
+        <View style={styles.right}>
+          {props.children}
         </View>
-      </SafeAreaView>
-    </View>
+      </View>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
+  statusBar: {
+    backgroundColor: 'white',
+  },
   logo: {
     width: 80,
     height: 26,

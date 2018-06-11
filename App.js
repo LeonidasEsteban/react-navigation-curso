@@ -28,9 +28,4 @@ class App extends Component<Props> {
 }
 
 
-export default createStackNavigator({
-  Home: {
-    screen: App
-  }
-})
-
+export default App;

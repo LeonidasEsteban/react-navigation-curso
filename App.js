@@ -7,11 +7,11 @@ import Loading from './src/sections/components/loading';
 // import AppLayout from './src/app';
 import AppWithNavigationState from './src/app-with-navigator-state';
 
-import { createStackNavigator } from 'react-navigation';
 
 type Props = {};
 class App extends Component<Props> {
   render() {
+    console.disableYellowBox = true;
     return (
       <Provider
         store={store}

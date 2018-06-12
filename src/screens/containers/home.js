@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {
-  SafeAreaView
+  Text,
 } from 'react-native';
 import { connect } from 'react-redux';
 
@@ -13,8 +13,6 @@ import Header from '../../sections/components/header';
 class Home extends Component {
   async componentDidMount() {
     const categoryList = await API.getMovies();
-    console.log('Esta es la lista de categorías')
-    console.table(categoryList);
     this.props.dispatch({
       type: 'SET_CATEGORY_LIST',
       payload: {
@@ -28,6 +26,7 @@ class Home extends Component {
         suggestionList
       }
     })
+
   }
   render() {
     return (
@@ -43,6 +42,10 @@ class Home extends Component {
 Home.navigationOptions = ({ navigation }) => {
   return {
     header: <Header />,
+    title: 'inicio',
+    tabBarIcon: <Text>:D</Text>,
+    navigationOptions: {
+    }
     // headerStyle: {
     //   backgroundColor: '#1A2F3B',
     // }

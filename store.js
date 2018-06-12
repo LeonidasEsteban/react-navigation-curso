@@ -11,7 +11,7 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['videos', 'navigation', 'suggestionList', 'categoryList']
+  blacklist: ['navigation', 'suggestionList', 'categoryList']
 }
 
 

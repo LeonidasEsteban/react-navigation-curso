@@ -2,23 +2,26 @@ import React from 'react';
 import {
   View,
   Text,
-  StyleSheet
+  StyleSheet,
+  SafeAreaView,
 } from 'react-native';
 
 function Layout(props) {
   return (
-    <View style={styles.container}>
-      <View style={styles.video}>
-        {props.video}
+    <SafeAreaView>
+      <View style={styles.container}>
+        <View style={styles.video}>
+          {props.video}
+        </View>
+        <View style={styles.overlay}>
+          {
+            props.loading &&
+            props.loader
+          }
+        </View>
+        {props.controls}
       </View>
-      <View style={styles.overlay}>
-        {
-          props.loading &&
-          props.loader
-        }
-      </View>
-      {props.controls}
-    </View>
+    </SafeAreaView>
   )
 }
 

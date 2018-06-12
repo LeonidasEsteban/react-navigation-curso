@@ -6,6 +6,7 @@ import {
 
 import API from '../../../utils/api';
 import { connect } from 'react-redux';
+import { NavigationActions, withNavigation, StackActions } from 'react-navigation';
 
 class Search extends Component {
   state = {
@@ -20,6 +21,11 @@ class Search extends Component {
         movie: movies[0]
       }
     })
+    this.props.dispatch(
+      NavigationActions.navigate({
+        routeName: 'Movie'
+      })
+    );
 
   }
   handleChangeText = (text) => {
@@ -47,8 +53,8 @@ const styles = StyleSheet.create({
     padding: 15,
     fontSize: 15,
     borderWidth: 1,
-    borderColor: '#eaeaea'
+    borderColor: '#eaeaea',
   }
 })
 
-export default connect(null)(Search);
+export default withNavigation(connect(null)(Search));

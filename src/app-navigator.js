@@ -2,11 +2,13 @@ import React from 'react';
 import { Text, ScrollView } from 'react-native';
 import { DrawerItems, SafeAreaView, createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
 import Home from './screens/containers/home';
+import Category from './screens/containers/category';
 import Movie from './screens/containers/movie';
 import About from './screens/containers/about';
 import Lucky from './screens/containers/lucky';
 import Icon from './screens/components/home-icon';
 import DrawerContent from './sections/components/drawer';
+import Header from './sections/components/header';
 
 const routes = {
   // Movie: {
@@ -15,10 +17,16 @@ const routes = {
   Home: {
     screen: Home
   },
+  Category: {
+    screen: Category
+  },
 }
 // const didUpdate = createDidUpdateCallback("root");
 
 const AppNavigator = createStackNavigator(routes, {
+  navigationOptions: {
+    header: Header,
+  },
   initialRouteName: 'Home',
   headerMode: 'float',
   mode: 'card',

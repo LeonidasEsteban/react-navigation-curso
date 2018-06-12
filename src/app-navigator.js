@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { Text, ScrollView } from 'react-native';
+import { DrawerItems, SafeAreaView, createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
 import Home from './screens/containers/home';
 import Movie from './screens/containers/movie';
 import About from './screens/containers/about';
 import Lucky from './screens/containers/lucky';
 import Icon from './screens/components/home-icon';
+import DrawerContent from './sections/components/drawer';
 
 const routes = {
   // Movie: {
@@ -52,6 +53,8 @@ const TabNavigator = createBottomTabNavigator({
   }
 })
 
+
+
 const WithModal = createStackNavigator(
   {
     Main: {
@@ -73,4 +76,53 @@ const WithModal = createStackNavigator(
   }
 );
 
-export default WithModal;
+const Drawer = createDrawerNavigator(
+  {
+    Main: {
+      screen: WithModal,
+      navigationOptions: {
+        title: 'Inicio',
+        drawerIcon: Icon,
+      }
+    },
+    Sobre: {
+      screen: About
+    },
+    Suerte: {
+      screen: Lucky,
+    },
+  },
+  {
+    drawerWidth: 200,
+    drawerBackgroundColor: '#f6f6f6',
+    backgroundColor: 'red',
+    contentComponent: DrawerContent,
+    contentOptions: {
+      activeBackgroundColor: '#7aba2f',
+      activeTintColor: 'white',
+      inactiveTintColor: '#828282',
+      inactiveBackgroundColor: 'white',
+      itemStyle: {
+        borderBottomWidth: .5,
+        borderBottomColor: 'rgba(0,0,0,.5)',
+      },
+      labelStyle: {
+        marginHorizontal: 0,
+      },
+      iconContainerStyle: {
+        marginHorizontal: 5,
+      }
+    }
+  }
+)
+
+const Main = createStackNavigator(
+  {
+    Main: Drawer
+  },{
+    headerMode: 'none',
+  }
+)
+
+
+export default Main;

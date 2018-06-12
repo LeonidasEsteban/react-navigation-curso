@@ -11,6 +11,17 @@ import SuggestionList from '../../videos/containers/suggestion-list';
 import Header from '../../sections/components/header';
 
 class Home extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: <Header />,
+      title: 'inicio',
+      navigationOptions: {
+      }
+      // headerStyle: {
+      //   backgroundColor: '#1A2F3B',
+      // }
+    }
+  }
   async componentDidMount() {
     const categoryList = await API.getMovies();
     this.props.dispatch({
@@ -39,18 +50,7 @@ class Home extends Component {
   }
 }
 
-Home.navigationOptions = ({ navigation }) => {
-  return {
-    header: <Header />,
-    title: 'inicio',
-    tabBarIcon: <Text>:D</Text>,
-    navigationOptions: {
-    }
-    // headerStyle: {
-    //   backgroundColor: '#1A2F3B',
-    // }
-  }
-};
+
 
 function mapStateToProps(state) {
   return {

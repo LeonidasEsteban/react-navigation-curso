@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
   TextInput,
-  StyleSheet
+  StyleSheet,
+  SafeAreaView,
 } from 'react-native';
 
 import API from '../../../utils/api';
@@ -35,15 +36,17 @@ class Search extends Component {
   }
   render() {
     return (
-      <TextInput
-        placeholder="Busca tu película favorita"
-        autoCorrent={false}
-        autoCapitalize="none"
-        underlineColorAndroid="transparent"
-        onSubmitEditing={this.handleSubmit}
-        onChangeText={this.handleChangeText}
-        style={styles.input}
-      />
+      <SafeAreaView>
+        <TextInput
+          placeholder="Busca tu película favorita"
+          autoCorrent={false}
+          autoCapitalize="none"
+          underlineColorAndroid="transparent"
+          onSubmitEditing={this.handleSubmit}
+          onChangeText={this.handleChangeText}
+          style={styles.input}
+        />
+      </SafeAreaView>
     )
   }
 }

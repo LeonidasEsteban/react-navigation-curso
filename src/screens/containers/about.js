@@ -14,15 +14,12 @@ class About extends Component {
       title: 'Sobre esta app',
       activeTintColor: 'blue',
       tabBarIcon: <Text>🤓</Text>,
+      drawerIcon: <Text>🤓</Text>,
     }
   }
   render() {
     return (
       <View style={styles.container}>
-        {/*<StatusBar
-          backgroundColor="#00273c"
-          barStyle="light-content"
-        />*/}
         <Image
           source={{uri: 'https://static.platzi.com/media/achievements/badge-reactnative-9c23a814-e9c3-4041-afbd-ff8083fbf32f.png'}}
           style={styles.logo}

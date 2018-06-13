@@ -1,6 +1,11 @@
 import React from 'react';
 import { Text, ScrollView } from 'react-native';
-import { DrawerItems, SafeAreaView, createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
+import {
+  createStackNavigator,
+  createBottomTabNavigator,
+  createDrawerNavigator,
+  createSwitchNavigator
+} from 'react-navigation';
 import Home from './screens/containers/home';
 import Category from './screens/containers/category';
 import Movie from './screens/containers/movie';
@@ -9,6 +14,9 @@ import Lucky from './screens/containers/lucky';
 import Icon from './screens/components/home-icon';
 import DrawerContent from './sections/components/drawer';
 import Header from './sections/components/header';
+import Loading from './screens/containers/loading';
+import Login from './screens/containers/login';
+import Profile from './screens/containers/profile';
 
 const routes = {
   // Movie: {
@@ -53,6 +61,9 @@ const TabNavigator = createBottomTabNavigator({
   Lucky: {
     screen: Lucky,
   },
+  Profile: {
+    screen: Profile
+  }
 }, {
   initialRouteName: 'Home',
   tabBarOptions: {
@@ -124,11 +135,22 @@ const Drawer = createDrawerNavigator(
   }
 )
 
-const Main = createStackNavigator(
+const DrawerStacked = createStackNavigator(
   {
     Main: Drawer
   },{
     headerMode: 'none',
+  }
+)
+
+const Main = createSwitchNavigator(
+  {
+    Loading: Loading,
+    Login: Login,
+    App: DrawerStacked,
+  },
+  {
+    initialRouteName: 'Loading',
   }
 )
 

@@ -37,9 +37,6 @@ class Home extends Component {
         suggestionList
       }
     })
-
-  }
-  componentDidMount() {
     this.focus = this.props.navigation.addListener('didFocus', () => {
       StatusBar.setBarStyle('dark-content');
       StatusBar.setBackgroundColor('white');

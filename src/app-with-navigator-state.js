@@ -40,7 +40,7 @@ class AppWithNavigatorState extends Component {
   render() {
     const navigation = {
       dispatch: this.props.dispatch,
-      state: this.props.nav,
+      state: this.props.navigation,
       addListener
     };
 
@@ -54,7 +54,7 @@ class AppWithNavigatorState extends Component {
 
 function mapStateToProps(state) {
   return {
-    nav: state.navigation
+    navigation: state.navigation
   }
 }
 

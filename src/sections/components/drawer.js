@@ -10,7 +10,6 @@ import {
 import { DrawerItems } from 'react-navigation';
 
 function Drawer(props) {
-  console.log(props)
   return (
     <ScrollView>
       <SafeAreaView

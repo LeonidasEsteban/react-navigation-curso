@@ -5,7 +5,7 @@ import {
   StyleSheet,
   Link,
   Image,
-  StatusBar
+  StatusBar,
 } from 'react-native';
 
 class About extends Component {
@@ -16,6 +16,15 @@ class About extends Component {
       tabBarIcon: <Text>🤓</Text>,
       drawerIcon: <Text>🤓</Text>,
     }
+  }
+  componentDidMount() {
+    this.focus = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('light-content');
+      StatusBar.setBackgroundColor('#022c43');
+    })
+  }
+  componentWillUnmount() {
+    this.focus.remove();
   }
   render() {
     return (
@@ -38,10 +47,12 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#022c43',
   },
   text: {
     textAlign: 'center',
     marginBottom: 5,
+    color: 'white',
   },
   logo: {
     width: 80,

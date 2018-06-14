@@ -5,11 +5,16 @@ import {
   Image,
   StyleSheet,
   ActivityIndicator,
+  StatusBar,
 } from 'react-native';
 
 function Loading(props) {
   return (
     <View style={styles.container}>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="white"
+      />
       <Image
         source={require('../../../assets/logo.png')}
         style={styles.logo}

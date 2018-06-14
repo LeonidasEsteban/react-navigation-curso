@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {
-  Text,
+  StatusBar
 } from 'react-native';
 import { connect } from 'react-redux';
 
@@ -39,9 +39,22 @@ class Home extends Component {
     })
 
   }
+  componentDidMount() {
+    this.focus = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('dark-content');
+      StatusBar.setBackgroundColor('white');
+    })
+  }
+  componentWillUnmount() {
+    this.focus.remove();
+  }
   render() {
     return (
       <Fragment>
+        <StatusBar
+          barStyle="dark-content"
+          backgroundColor="white"
+        />
         <Search />
         <CategoryList />
         <SuggestionList />

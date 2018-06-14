@@ -4,7 +4,8 @@ import {
   Text,
   SafeAreaView,
   StyleSheet,
-  Button
+  Button,
+  StatusBar
 } from 'react-native';
 import { connect } from 'react-redux';
 
@@ -20,6 +21,15 @@ class Profile extends Component {
       tabBarIcon: <Text>😎</Text>,
       title: 'Perfil'
     }
+  }
+  componentDidMount() {
+    this.focus = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('dark-content');
+      StatusBar.setBackgroundColor('white');
+    })
+  }
+  componentWillUnmount() {
+    this.focus.remove();
   }
   render() {
     return (

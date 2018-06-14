@@ -3,6 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
+  StatusBar,
 } from 'react-native';
 import Search from '../../sections/containers/search';
 
@@ -13,6 +14,15 @@ class Lucky extends Component {
       drawerIcon: <Text>⭐️</Text>,
       title: 'Voy a tener suerte',
     }
+  }
+  componentDidMount() {
+    this.focus = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('dark-content');
+      StatusBar.setBackgroundColor('white');
+    })
+  }
+  componentWillUnmount() {
+    this.focus.remove();
   }
   render() {
     return (

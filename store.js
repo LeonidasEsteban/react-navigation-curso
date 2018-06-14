@@ -20,7 +20,7 @@ const persistedReducer = persistReducer(persistConfig, reducer)
 
 const middleware = createReactNavigationReduxMiddleware(
   "root",
-  state => state.nav,
+  state => state.navigation,
 );
 
 const store = createStore(
